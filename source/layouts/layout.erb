@@ -5,9 +5,9 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Use the title from a page's frontmatter if it has one -->
     <title><%= current_page.data.title || "Middleman" %></title>
-    <%= stylesheet_link_tag "site" %>
-    <%= javascript_include_tag "site" %>
-    <%= javascript_include_tag "ui" %>
+    <%= stylesheet_link_tag     "site"%>
+    <%= javascript_include_tag  "site" %>
+    <%= javascript_include_tag    "ui" %>
     <meta name="description" content="<%= current_page.data.meta %>" />
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
     <!--[if lte IE 8]>
@@ -43,7 +43,7 @@
               <a class="pure-menu-heading" href="#"><%= image_tag "avatar.png" %><%= category %></a>
                <ul class="pure-menu-list">
                   <% pages.each do |p|  %>
-                    <li class="pure-menu-item <% if p.data.title==current_page.data.title%>menu-item-divided pure-menu-selected <%end%>" > <a class="pure-menu-link"  href="/<%= p.path %>"><%= p.data.title %></a></li>
+                    <li class="pure-menu-item <% if p.data.title==current_page.data.title%>menu-item-divided pure-menu-selected <%end%>" > <%= link_to p.data.title,p.url,:class => 'pure-menu-link'  %></li>
                   <% end %>
                 <% end %>
         </div>

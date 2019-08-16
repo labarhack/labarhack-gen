@@ -18,6 +18,15 @@ page '/*.txt', layout: false
 set :markdown_engine, :redcarpet
 activate :livereload
 set  :relative_links, true
+
+configure :build do
+  activate :relative_assets
+end
+
+
+
+
+
 # set :http_prefix, "/home/eric/Perso/wiki/labarhack/build/" 
 #activate :sitemap
 
