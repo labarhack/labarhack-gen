@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Use the title from a page's frontmatter if it has one -->
+    <title><%= current_page.data.title || "Middleman" %></title>
+    <%= stylesheet_link_tag "site" %>
+    <%= javascript_include_tag "site" %>
+  </head>
+  <body>
+    <% sitemap.resources.each do |f|  %>
+      <% if not f.content_type.nil? and f.content_type.include? "html"%>
+        <li> <a href="/<%= f.path %>"><%= f.data.title %></a></li>
+      <% end %>
+    <% end %>
+
+
+    ****
+    <%= current_page.path %>
+    <%= current_page.url %>
+    <%= current_page.path %>
+   parent:   <%= current_page.parent  %>
+   enfants: <% current_page.children.each do |c| %>
+    <% if not c.nil?%>
+      <%= c.data.path %>
+    <% end %>
+  <% end %>
+   frere: <% current_page.siblings.each do |c| %>
+    <% if not c.nil?%>
+      <%= c.data.path %>
+    <% end %>
+
+
+  <% end %>
+    ****
+    <%= yield %>
+  </body>
+</html>
