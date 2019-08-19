@@ -1,3 +1,9 @@
+
+require 'Fetch.rb'
+
+activate :fetch_from_github,repo_list: "./list.yml"
+
+
 # Activate and configure extensions
 # https://middlemanapp.com/advanced/configuration/#configuring-extensions
 
@@ -15,9 +21,13 @@ page '/*.txt', layout: false
 #page '/articles/*.md', layout: false
 #page '/articles/*.html', layout: false
 
+#set :markdown, :tables => true, :autolink => true, :gh_blockcode => true, :fenced_code_blocks => true
 set :markdown_engine, :redcarpet
 activate :livereload
 set  :relative_links, true
+set :markdown_engine, :redcarpet
+set :markdown, :fenced_code_blocks => true, :smartypants => true
+activate :syntax, :line_numbers => true
 
 configure :build do
   activate :relative_assets
