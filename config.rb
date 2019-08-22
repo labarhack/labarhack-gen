@@ -1,5 +1,4 @@
-
-require 'Fetch.rb'
+require 'middleman-fetch.rb'
 
 activate :fetch_from_github,repo_list: "./list.yml"
 
